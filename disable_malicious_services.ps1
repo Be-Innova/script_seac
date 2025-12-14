@@ -17,7 +17,12 @@ $targetDrivers = @(
     "HWAudio.sys",
     "HWAudioOs2Ec.sys",
     "vuln.sys",
-    "fidget.sys"
+    "fidget.sys",
+    "epmntdrv.sys",
+    "epmntdrv,5.sys",
+    "epmntdrv64.sys",
+    "epmntdrv,3.sys",
+    "rwdrv.sys"
 )
 
 Write-Host "`n[*] Target drivers to search:" -ForegroundColor Yellow
