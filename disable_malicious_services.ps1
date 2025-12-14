@@ -17,12 +17,7 @@ $targetDrivers = @(
     "HWAudio.sys",
     "HWAudioOs2Ec.sys",
     "vuln.sys",
-    "fidget.sys",
-    "epmntdrv.sys",
-    "epmntdrv,5.sys",
-    "epmntdrv64.sys",
-    "epmntdrv,3.sys",
-    "rwdrv.sys"
+    "fidget.sys"
 )
 
 Write-Host "`n[*] Target drivers to search:" -ForegroundColor Yellow
@@ -128,18 +123,8 @@ foreach ($group in $uniqueServices) {
     Write-Host "  - $($service.ServiceName) (uses $($service.Driver))" -ForegroundColor White
 }
 
-# Chiedi conferma
-Write-Host "`n[?] Do you want to disable these services? (Y/N): " -ForegroundColor Yellow -NoNewline
-$confirmation = Read-Host
-
-if ($confirmation -ne 'Y' -and $confirmation -ne 'y') {
-    Write-Host "[*] Operation cancelled by user" -ForegroundColor Yellow
-    Stop-Transcript
-    exit 0
-}
-
-# Disabilita i servizi
-Write-Host "`n[*] Disabling services..." -ForegroundColor Cyan
+# Disabilita automaticamente i servizi
+Write-Host "`n[*] Disabling services automatically..." -ForegroundColor Cyan
 
 $disabledCount = 0
 $failedCount = 0
